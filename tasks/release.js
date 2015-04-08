@@ -13,13 +13,18 @@ module.exports = function (options, gulp) {
         destination: './',
         version: null,
         releaseType: 'patch',
-        commitMessage: '[Release] Bump project version'
+        commitMessage: '[Release] Bump project version',
+        tagMessage: '[Release] Create release tag: %VERSION%'
+        versionPrefix: ''
     }, options);
 
     gulp.task('tag', ['bump', 'commit'], function () {
         return gulp.src(options.filesToBump)
             .pipe(filter(options.referenceFile))
-            .pipe(tag_version())
+            .pipe(tag_version({
+                prefix: options.prefix,
+                message: options.tagMessage
+            }))
             .pipe(git.push('origin', 'master', {
                 args: '--tags'
             }));
@@ -38,6 +43,7 @@ module.exports = function (options, gulp) {
     gulp.task('bump', function () {
         return gulp.src(options.filesToBump)
             .pipe(bump({
+                version: options.version,
                 type: options.releaseType
             }))
             .pipe(gulp.dest(options.destination));
