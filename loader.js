@@ -1,3 +1,3 @@
-module.exports = function (gulp) {
-    require(__dirname + '/tasks/release')(gulp)
+module.exports = function (options, gulp) {
+    require(__dirname + '/tasks/release')(options, gulp)
 };

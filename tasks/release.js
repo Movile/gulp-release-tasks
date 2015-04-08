@@ -6,7 +6,7 @@ var tag_version = require('gulp-tag-version');
 var _ = require('lodash');
 
 module.exports = function (options, gulp) {
-
+    
     options = _.defaults({
         filesToBump: [ './package.json', './bower.json' ],
         referenceFile: './package.json',
