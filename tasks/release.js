@@ -14,7 +14,7 @@ module.exports = function (options, gulp) {
         version: null,
         releaseType: 'patch',
         commitMessage: '[Release] Bump project version',
-        tagMessage: '[Release] Create release tag: %VERSION%'
+        tagMessage: '[Release] Create release tag: %VERSION%',
         versionPrefix: ''
     }, options);
 
