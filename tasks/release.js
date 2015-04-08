@@ -1,5 +1,4 @@
 var fs = require('fs');
-var prompt = require('gulp-prompt');
 var git = require('gulp-git');
 var bump = require('gulp-bump');
 var filter = require('gulp-filter');
@@ -13,7 +12,8 @@ module.exports = function (options, gulp) {
         referenceFile: './package.json',
         destination: './',
         version: null,
-        releaseType: 'patch'
+        releaseType: 'patch',
+        commitMessage: '[Release] Bump project version'
     }, options);
 
     gulp.task('tag', ['bump', 'commit'], function () {
@@ -31,15 +31,8 @@ module.exports = function (options, gulp) {
     });
 
     gulp.task('commit', ['add'], function () {
-        return gulp.src(options.referenceFile)
-            .pipe(prompt.prompt({
-                type: 'input',
-                name: 'commit',
-                message: 'enter a commit msg, eg initial commit'
-            }, function (res) {
-                return gulp.src(options.destination)
-                    .pipe(git.commit(res.commit));
-            }));
+        return gulp.src(options.destination)
+            .pipe(git.commit(options.commitMessage));
     });
 
     gulp.task('bump', function () {
