@@ -9,7 +9,7 @@
     "gulp-bump": "^0.3.0",
     "gulp-filter": "^2.0.2",
     "gulp-git": "^1.1.0",
-    "gulp-tag-version": "git://github.com/movile/gulp-tag-version.git#1.2.4",
+    "gulp-tag-version": "git://github.com/movile/gulp-tag-version.git#1.2.5",
     "lodash": "^3.6.0",
     "run-sequence": "^1.0.2"
   },
