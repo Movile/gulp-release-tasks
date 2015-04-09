@@ -21,7 +21,7 @@ module.exports = function (options, gulp) {
 
     gulp.task('tag', function () {
         runSequence('bump', 'commit', function () {
-            gulp.src(options.filesToBump)
+            return gulp.src(options.filesToBump)
                 .pipe(filter(options.referenceFile))
                 .pipe(tag_version({
                     prefix: options.versionPrefix,
