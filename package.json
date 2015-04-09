@@ -10,7 +10,8 @@
     "gulp-filter": "^2.0.2",
     "gulp-git": "^1.1.0",
     "gulp-tag-version": "git://github.com/movile/gulp-tag-version.git#1.2.4",
-    "lodash": "^3.6.0"
+    "lodash": "^3.6.0",
+    "run-sequence": "^1.0.2"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
