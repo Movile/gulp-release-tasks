@@ -20,7 +20,7 @@ module.exports = function (options, gulp) {
     }, options);
 
     gulp.task('tag', function () {
-        return runSequence('bump', 'commit', function () {
+        runSequence('bump', 'commit', function () {
             gulp.src(options.filesToBump)
                 .pipe(filter(options.referenceFile))
                 .pipe(tag_version({
