@@ -3,7 +3,7 @@
   "description": "",
   "author": "",
   "repository": "https://github.com/Movile/gulp-release-tasks",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "loader.js",
   "dependencies": {
     "gulp-bump": "^0.3.0",
