@@ -9,7 +9,7 @@ module.exports = function (options, gulp) {
     
     options = _.defaults({
         filesToBump: [ './package.json', './bower.json' ],
-        referenceFile: './package.json',
+        referenceFile: 'package.json',
         destination: './',
         version: null,
         releaseType: 'patch',
@@ -22,7 +22,7 @@ module.exports = function (options, gulp) {
         return gulp.src(options.filesToBump)
             .pipe(filter(options.referenceFile))
             .pipe(tag_version({
-                prefix: options.prefix,
+                prefix: options.versionPrefix,
                 message: options.tagMessage
             }))
             .pipe(git.push('origin', 'master', {
